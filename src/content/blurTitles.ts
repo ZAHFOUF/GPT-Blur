@@ -3,12 +3,7 @@
  */
 
 import { extensionConfig } from '@/config/extensionConfig'
-import {
-  findConversationAnchors,
-  findSidebarRoot,
-  resolveTitleElement,
-  shouldSkipAnchorForExcludedLabel,
-} from './selectors'
+import { getAllConversationTitleElements } from './selectors'
 
 type ExcludedSet = ReadonlySet<string>
 
@@ -28,22 +23,14 @@ export function syncConversationTitleBlur(
     return
   }
 
-  const root = findSidebarRoot()
-  const anchors = findConversationAnchors(root)
-  const shouldBlurTargets = new Set<HTMLElement>()
-
-  for (const anchor of anchors) {
-    if (shouldSkipAnchorForExcludedLabel(anchor, excluded)) continue
-    const target = resolveTitleElement(anchor)
-    shouldBlurTargets.add(target)
-  }
+  const titleElements = getAllConversationTitleElements(excluded)
+  const shouldBlurTargets = new Set<HTMLElement>(titleElements)
 
   for (const el of shouldBlurTargets) {
     el.classList.add(blurClass)
   }
 
-  const scope: Document | Element = root instanceof Document ? document.documentElement : root
-  scope.querySelectorAll(`.${blurClass}`).forEach((node) => {
+  document.documentElement.querySelectorAll(`.${blurClass}`).forEach((node) => {
     if (node instanceof HTMLElement && !shouldBlurTargets.has(node)) {
       node.classList.remove(blurClass)
     }

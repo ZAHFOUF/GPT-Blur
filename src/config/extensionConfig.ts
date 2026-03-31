@@ -48,6 +48,11 @@ export const extensionConfig = {
     'nouveau chat',
     'rechercher dans les discussions',
     'rechercher des discussions',
+    /** Onglets / zones Project (correspondance exacte normalisée). */
+    'chats',
+    'sources',
+    'discussions',
+    'projets',
   ],
 
   /** Clés `chrome.storage.local` (aucune donnée n’est envoyée hors de l’appareil). */
