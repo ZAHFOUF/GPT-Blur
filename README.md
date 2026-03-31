@@ -116,4 +116,4 @@ vite.config.ts
 
 ## Licence
 
-Voir le dépôt (à compléter selon votre choix).
+Ce projet est sous **GNU General Public License v3.0** : voir le fichier [LICENSE](LICENSE) (texte officiel). Identifiant SPDX : `GPL-3.0`.

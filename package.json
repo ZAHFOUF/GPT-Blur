@@ -2,6 +2,7 @@
   "name": "gpt-blur",
   "version": "0.1.0",
   "private": true,
+  "license": "GPL-3.0",
   "type": "module",
   "description": "Floutage visuel des titres de conversations ChatGPT dans la barre latérale",
   "scripts": {
