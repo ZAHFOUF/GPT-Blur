@@ -1,0 +1,12 @@
+/**
+ * Flou uniquement visuel. `amountPx` est injecté via --gpt-blur-amount sur :root (voir index.ts).
+ */
+:root {
+  --gpt-blur-amount: 6px;
+}
+
+.gpt-blur-conversation-title {
+  filter: blur(var(--gpt-blur-amount)) !important;
+  /* Le titre reste cliquable ; le flou masque la lecture rapide */
+  pointer-events: auto;
+}
